@@ -11,6 +11,8 @@ class _Executor extends Mixinable<_Executor> with _ExecutorLogger {
   final _pool = <Worker>[];
   var _nextTaskId = _minId;
 
+  List<Worker> get pool => _pool;
+
   @override
   Future<void> init({int? isolatesCount}) async {
     if (_pool.isNotEmpty) {

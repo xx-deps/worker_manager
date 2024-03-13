@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:isolate';
 import 'package:worker_manager/src/scheduling/task.dart';
 import 'package:worker_manager/src/worker/worker.dart';
 
@@ -6,6 +7,9 @@ class WorkerImpl implements Worker {
   final void Function() onReviseAfterTimeout;
 
   WorkerImpl(this.onReviseAfterTimeout);
+
+  @override
+  Isolate get isolate => Isolate.current;
 
   @override
   var initialized = false;

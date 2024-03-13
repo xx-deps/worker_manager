@@ -12,6 +12,10 @@ class WorkerImpl implements Worker {
   WorkerImpl(this.onReviseAfterTimeout);
 
   late Isolate _isolate;
+
+  @override
+  Isolate get isolate => _isolate;
+
   late RawReceivePort _receivePort;
   late SendPort _sendPort;
   Completer? _result;
